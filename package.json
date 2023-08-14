@@ -1,0 +1,33 @@
+{
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "eslint": "^8.45.0",
+    "@types/react": "^18.2.7",
+    "@types/react-dom": "^18.2.4",
+    "@webpack-cli/generators": "^3.0.4",
+    "html-webpack-plugin": "^5.5.1",
+    "ts-loader": "^9.4.3",
+    "typescript": "^5.0.4",
+    "webpack-dev-server": "^4.15.0",
+    "workbox-webpack-plugin": "^6.5.4"
+  },
+  "version": "1.0.0",
+  "description": "My webpack project",
+  "name": "my-webpack-project",
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "keepd": "file:../keepd/local/keepd",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.1",
+    "react-query": "^3.39.3"
+  }
+}
