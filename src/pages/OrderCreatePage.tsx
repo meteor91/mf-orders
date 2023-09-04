@@ -3,16 +3,16 @@ import { Row, Col } from 'keepd';
 import { useNavigate } from 'react-router-dom';
 import { OrderForm } from '../components/OrderForm';
 
-export const OrdersCreatePage: React.FC = () => {
+export const OrderCreatePage: React.FC = () => {
     const navigate = useNavigate();
-    const handleCreateOrder = () => {
+    const handleCreateSuccess = () => {
         navigate('/');
     };
 
     return (
         <Row>
             <Col span={12}>
-                <OrderForm onSuccess={handleCreateOrder} />
+                <OrderForm onSuccess={handleCreateSuccess} />
             </Col>
         </Row>
 

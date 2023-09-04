@@ -23,11 +23,12 @@
     "serve": "webpack serve"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.32.1",
+    "@tanstack/react-query-devtools": "^4.33.0",
     "axios": "^1.4.0",
-    "keepd": "file:../keepd/local/keepd",
+    "keepd": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.13.0",
-    "@tanstack/react-query": "^4.32.1"
+    "react-router-dom": "^6.13.0"
   }
 }

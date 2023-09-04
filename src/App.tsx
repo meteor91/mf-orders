@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { routes } from './routes';
@@ -9,6 +11,7 @@ export const queryClient = new QueryClient({
         queries: {
             refetchOnWindowFocus: false,
             retry: false,
+            keepPreviousData: false,
         },
     },
 });
@@ -25,6 +28,7 @@ const App: React.FC<ModuleProps> = (props) => {
             <div className="redrock">
                 <RouterProvider router={router} />
             </div>
+            <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
     );
 };

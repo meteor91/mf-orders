@@ -8,6 +8,10 @@ export const http = axios.create({
     withCredentials: true,
 });
 
+//export interface AxiosResponseTransformer {
+//   (this: InternalAxiosRequestConfig, data: any, headers: AxiosResponseHeaders, status?: number): any;
+// }
+
 /**
  * POST-запрос, возвращает ответ с бекенда.
  *

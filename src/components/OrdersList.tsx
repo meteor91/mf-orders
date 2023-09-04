@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Table, type ColumnDef } from 'keepd';
 import { getOrdersList } from '../api';
 import { Order, Pagination } from '../models';
+import { Link } from 'react-router-dom';
 
 
 export const OrdersList: React.FC = () => {
@@ -11,7 +12,7 @@ export const OrdersList: React.FC = () => {
         pageIndex: 0,
         pageSize: 5,
     });
-    const { isLoading, data } = useQuery(
+    const { isFetching, data } = useQuery(
         ['ordersList', pagination],
         () => getOrdersList(pagination.pageIndex, pagination.pageSize),
     );
@@ -27,7 +28,7 @@ export const OrdersList: React.FC = () => {
         <Table<Order>
             columns={columns}
             data={data?.results ?? []}
-            loading={isLoading}
+            loading={isFetching}
             onPaginationChange={setPagination}
             pagination={pagination}
             pageCount={pageCount}
@@ -47,5 +48,10 @@ const columns: Array<ColumnDef<Order>> = [
     {
         header: 'Status',
         accessorKey: 'status',
+    },
+    {
+        header: 'gg',
+        accessorKey: 'id',
+        cell: (info) => <Link to={`/details/${info.getValue()}`}>Details</Link>,
     },
 ];
