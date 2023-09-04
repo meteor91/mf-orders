@@ -3,8 +3,8 @@ export enum Status {
     ON_THE_MAY = 'ON_THE_MAY',
     READY_TO_TAKE = 'READY_TO_TAKE',
 }
-export interface Orders {
-    id: number;
+export interface Order {
+    id?: number;
     status: Status;
     receiver: string;
     sender: string;
@@ -25,3 +25,9 @@ export interface Pagination {
     pageIndex: number;
     pageSize: number;
 }
+
+export type ServerValidateErrors<T> = {
+    [K in keyof Partial<T>]: string[];
+} & {
+    nonFieldErrors?: string[]
+};

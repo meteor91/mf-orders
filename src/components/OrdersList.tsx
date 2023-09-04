@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { Table, type ColumnDef } from 'keepd';
 import { getOrdersList } from '../api';
-import { Orders, Pagination } from '../models';
+import { Order, Pagination } from '../models';
 
 
 export const OrdersList: React.FC = () => {
@@ -24,7 +24,7 @@ export const OrdersList: React.FC = () => {
 
 
     return (
-        <Table<Orders>
+        <Table<Order>
             columns={columns}
             data={data?.results ?? []}
             loading={isLoading}
@@ -35,7 +35,7 @@ export const OrdersList: React.FC = () => {
     );
 };
 
-const columns: Array<ColumnDef<Orders>> = [
+const columns: Array<ColumnDef<Order>> = [
     {
         header: 'Receiver',
         accessorKey: 'receiver',

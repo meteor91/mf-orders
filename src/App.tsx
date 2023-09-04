@@ -1,8 +1,8 @@
-import React from 'react';
-import { QueryClientProvider } from 'react-query';
+import React, { useState } from 'react';
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { QueryClient } from 'react-query';
-import { OrdersListPage } from './Pages/OrdersListPage';
+import { routes } from './routes';
 
 export const queryClient = new QueryClient({
     defaultOptions: {
@@ -13,12 +13,17 @@ export const queryClient = new QueryClient({
     },
 });
 
+interface ModuleProps {
+    basename?: string
+}
 
-const App = () => {
+const App: React.FC<ModuleProps> = (props) => {
+    const [router] = useState(() => createBrowserRouter(routes, { basename: props.basename }));
+    console.log(props);
     return (
         <QueryClientProvider client={queryClient}>
             <div className="redrock">
-                <OrdersListPage />
+                <RouterProvider router={router} />
             </div>
         </QueryClientProvider>
     );
